@@ -1,6 +1,3 @@
-// added async infront of functions so that it wil wait till it get updated and added the mongodb url instead of local database server
-// except logging errors all other console logs are removed
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -11,7 +8,7 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
-mongoose.connect('mongodb+srv://rerevo7582:WLuqtRzLOJChmpiT@cluster0.ypzxdwm.mongodb.net/todolistDB', { useNewUrlParser: true })
+mongoose.connect('mongodb://127.0.0.1:27017/todolistDB', { useNewUrlParser: true })
   .then(() => {
     console.log('Successfully connected to MongoDB');
   })
